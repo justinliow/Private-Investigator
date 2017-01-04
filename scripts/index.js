@@ -16,7 +16,8 @@ PIAPP.controller('PIAPPCtrl', function ($scope, $http, $window) {
         }
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            $scope.response=response;
+
         });
 
 
