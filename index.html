@@ -12,20 +12,41 @@
 
 <body ng-app="PIAPP">
 
-<div ng-controller="PIAPPCtrl">
+<div class="container" ng-controller="PIAPPCtrl">
 
 
-	<div class="input">
-  		<label for="usr">Enter email:</label>
-  		<input type="text" class="form-control" id="usr" ng-model="email">
-	</div>
+    <div class="input">
+        <label for="usr">Enter email:</label>
+        <input type="text" class="form-control" id="usr" ng-model="email">
+    </div>
 
     <!-- {{test}} -->
     <!-- <input type="text" class="form-control" id="Stop" ng-model="test" > -->
-
+    <br>
     <button type="button" class="btn btn-primary btn-block" ng-click="submitEmail()">OK</button>
 
-    {{response}}
+    <div ng-repeat="profile in socialProfiles" ng-show="profile">
+        
+        
+        Profile Type:  {{profile.typeName}}
+        
+        <div ng-show="photoSearch(profile.type)">
+            <img ng-src="{{photoSearch(profile.type)}}">
+        </div>
+        
+        <div ng-show="profile.username">
+            Username: {{profile.username}}
+        </div>
+        
+        <div ng-show="profile.url">
+            URL: {{profile.url}}
+        </div>
+        
+        <br>
+    
+        
+        
+    </div>
 
 
 
