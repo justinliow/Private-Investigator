@@ -7,6 +7,7 @@
     <!--<script type="text/javascript" src="scripts/jquery-3.1.0.js"></script>-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="scripts/index.js"></script>
+
 </head>
 
 <body ng-app="PIAPP">
@@ -14,14 +15,25 @@
 <div ng-controller="PIAPPCtrl">
 
 
-    {{test}}
-    <input type="text" class="form-control" id="Stop" ng-model="test" >
+	<div class="input">
+  		<label for="usr">Enter email:</label>
+  		<input type="text" class="form-control" id="usr" ng-model="email">
+	</div>
 
-    <button type="button" class="btn btn-primary btn-block" ng-click="testFunction()">OK</button>
+    <!-- {{test}} -->
+    <!-- <input type="text" class="form-control" id="Stop" ng-model="test" > -->
+
+    <button type="button" class="btn btn-primary btn-block" ng-click="submitEmail()">OK</button>
 
 
 
 </div>
+
+
+
+
+
+
 
 </body>
 </html>
