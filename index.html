@@ -8,49 +8,54 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="scripts/index.js"></script>
     <link rel="stylesheet" href="css/PI.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
 </head>
 
 <body ng-app="PIAPP">
 
 <div class="container" ng-controller="PIAPPCtrl">
-<h1 class="elegantshadow">PRIVATE INVESTIGATOR</h1>
+    <h1 class="elegantshadow">PRIVATE INVESTIGATOR</h1>
+    <form ng-submit="submitEmail()">
 
-    <div class="input">
-        <label for="usr">Enter email:</label>
-        <input type="text" class="form-control" id="usr" ng-model="email">
-    </div>
+        <div class="input">
+            <label for="usr">Enter email:</label>
+            <input type="text" class="form-control" id="usr" ng-model="email">
+        </div>
 
-    <!-- {{test}} -->
-    <!-- <input type="text" class="form-control" id="Stop" ng-model="test" > -->
-    <br>
-    <button type="button" class="btn btn-primary btn-block" ng-click="submitEmail()">OK</button>
-    <br>
-    <div class="panel panel-default" ng-repeat="profile in socialProfiles" ng-show="profile">
-        
-        
-        <div style="color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 18px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">
-                {{profile.typeName}}
-        </div>
-        
-        <div ng-show="photoSearch(profile.type)">
-            <img class="picture" ng-src="{{photoSearch(profile.type)}}">
-        </div>
-        
-        <div ng-show="profile.username">
-            Username: {{profile.username}}
-        </div>
-        
-        <div ng-show="profile.url">
-            URL: {{profile.url}}
-        </div>
-        
         <br>
-    
-        
-        
+        <button type="submit" class="btn btn-primary btn-block">OK</button>
+    </form>
+
+    <br>
+    <div ng-show="page==0">
+        <div class="panel panel-default" ng-repeat="profile in socialProfiles" ng-show="profile">
+
+
+            <div style="color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 18px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">
+                {{profile.typeName}}
+            </div>
+
+            <div ng-show="photoSearch(profile.type)">
+                <img class="picture" ng-src="{{photoSearch(profile.type)}}">
+            </div>
+
+            <div ng-show="profile.username">
+                Username: {{profile.username}}
+            </div>
+
+            <div ng-show="profile.url">
+                URL: {{profile.url}}
+            </div>
+
+            <br>
+
+
+        </div>
     </div>
 
+    <div ng-show="page==1">
+        {{error}}
+    </div>
 
 
 </div>
@@ -59,11 +64,6 @@
 </html>
 
 </div>
-
-
-
-
-
 
 
 </body>
